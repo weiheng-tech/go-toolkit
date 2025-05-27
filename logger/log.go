@@ -3,7 +3,7 @@ package logger
 import (
 	"github.com/rifflock/lfshook"
 	log "github.com/sirupsen/logrus"
-	"github.com/weiheng-tech/go-toolkit/pkg/utils"
+	"github.com/weiheng-tech/go-toolkit/system"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"io"
 	"os"
@@ -12,7 +12,7 @@ import (
 )
 
 func ensureLogPath(path string) {
-	if existed, _ := utils.PathExists(filepath.Dir(path)); existed {
+	if existed, _ := system.PathExists(filepath.Dir(path)); existed {
 		return
 	} else {
 		_ = os.MkdirAll(filepath.Dir(path), os.ModePerm)
